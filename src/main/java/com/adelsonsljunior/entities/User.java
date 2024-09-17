@@ -70,4 +70,8 @@ public class User {
     public String getEmail() {
         return email;
     }
+
+    public Long getId() {
+        return id;
+    }
 }
