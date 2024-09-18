@@ -8,11 +8,11 @@ import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
 
 @Provider
-public class ExistingEmailMapper implements ExceptionMapper<ExistingEmailException> {
+public class UniqueConstraintMapper implements ExceptionMapper<UniqueConstraintException> {
 
     @Override
     @Produces(MediaType.APPLICATION_JSON)
-    public Response toResponse(ExistingEmailException e) {
+    public Response toResponse(UniqueConstraintException e) {
         ErrorResponse response = new ErrorResponse(e.getMessage());
         return Response.status(Response.Status.SEE_OTHER)
                 .entity(response)
