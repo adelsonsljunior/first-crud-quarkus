@@ -4,6 +4,7 @@ import com.adelsonsljunior.dtos.UserRequestDTO;
 import com.adelsonsljunior.dtos.UserResponseDTO;
 import com.adelsonsljunior.services.UserService;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @POST
-    public Response create(UserRequestDTO data) {
+    public Response create(@Valid UserRequestDTO data) {
 
         UserResponseDTO createdUser = userService.create(data);
         return Response.status(Response.Status.CREATED).entity(createdUser).build();
@@ -42,7 +43,7 @@ public class UserController {
 
     @PATCH
     @Path(value = "/{id}")
-    public Response update(@PathParam("id") Long id, UserRequestDTO data) {
+    public Response update(@PathParam("id") Long id, @Valid UserRequestDTO data) {
 
         UserResponseDTO updatedUser = userService.update(id, data);
         return Response.status(Response.Status.OK).entity(updatedUser).build();
