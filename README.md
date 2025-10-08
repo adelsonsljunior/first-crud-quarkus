@@ -1,33 +1,21 @@
 # first-crud-quarkus
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Como rodar
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+### Crie uma copia de `.env.example` com o nome `.env` e mude a variável `DB_HOST` para database (nome do serviço do docker compose)
 
-<br>
-
-> ## How to run
-
-### Create a copy of the `.env.example` file named `.env`
-
-### Run database container
-
-~~~shell
-docker compose -f docker-compose.dev.yml up
+~~~diff
+- DB_HOST=localhost
++ DB_HOST=database
 ~~~
 
-### Packaging and running the application
+### Suba a aplicação
 
-```shell script
-./mvnw package
-```
+~~~shell
+docker compose up
+~~~
 
-```shell script
-java -jar target/quarkus-app/quarkus-run.jar
-```
+> ## Documentação com Swagger
 
-<br>
-
-> ## Accessing documentation with swagger
-
-### `localhost:8080/swagger-ui`
+<a href="http://localhost:8080/api/q/docs/" target="_blank">http://localhost:8080/api/q/docs/</a>
+ 
